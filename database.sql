@@ -59,3 +59,4 @@ INSERT INTO `ventas` (`cliente_id`, `producto_id`, `cantidad`, `fecha`) VALUES
 (8, 7, 1, '2023-01-13 17:00:00'),
 (9, 10, 1, '2023-01-14 18:00:00'),
 (10, 9, 1, '2023-01-14 19:00:00');
+

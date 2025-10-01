@@ -6,17 +6,17 @@ import mysql from "mysql2/promise";
 const app = express();
 const PORT = 3000;
 
-const TOKEN = process.env.TELEGRAM_TOKEN; // Your Telegram Bot Token
-const GEMINI_KEY = process.env.GEMINI_API_KEY; // Your Gemini API Key
+const TOKEN = process.env.TELEGRAM_TOKEN;
+const GEMINI_KEY = process.env.GEMINI_API_KEY;
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 const genAI = new GoogleGenerativeAI(GEMINI_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
 const db = await mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
+  host: process.env.DB_HOST ,
+  user:process.env.DB_USER ,
+  password: process.env.DB_PASSWORD ,
   database: "bot-telegram",
 });
 
@@ -39,7 +39,6 @@ async function generarSQL(pregunta) {
   `;
   const result = await model.generateContent(prompt);
   const rawSql = result.response.text();
-  // Extract SQL from markdown block
   const sqlMatch = rawSql.match(/```sql\n([\s\S]*?)\n```/);
   return sqlMatch ? sqlMatch[1] : rawSql;
 }

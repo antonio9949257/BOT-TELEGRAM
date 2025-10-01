@@ -24,7 +24,6 @@ CREATE TABLE IF NOT EXISTS `ventas` (
   FOREIGN KEY (`producto_id`) REFERENCES `productos`(`id`)
 );
 
--- Insert 10 sample clients
 INSERT INTO `clientes` (`nombre`, `email`) VALUES
 ('Juan Perez', 'juan.perez@example.com'),
 ('Maria Garcia', 'maria.garcia@example.com'),
@@ -37,7 +36,6 @@ INSERT INTO `clientes` (`nombre`, `email`) VALUES
 ('Javier Ruiz', 'javier.ruiz@example.com'),
 ('Elena Diaz', 'elena.diaz@example.com');
 
--- Insert 10 sample products
 INSERT INTO `productos` (`nombre`, `precio`) VALUES
 ('Laptop', 1200.00),
 ('Mouse', 25.50),
@@ -50,7 +48,6 @@ INSERT INTO `productos` (`nombre`, `precio`) VALUES
 ('Disco Duro SSD', 180.00),
 ('Router Wi-Fi', 60.00);
 
--- Insert 10 sample sales
 INSERT INTO `ventas` (`cliente_id`, `producto_id`, `cantidad`, `fecha`) VALUES
 (1, 1, 1, '2023-01-10 10:00:00'),
 (2, 3, 2, '2023-01-10 11:00:00'),

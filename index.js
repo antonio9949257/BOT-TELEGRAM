@@ -18,7 +18,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 const db = await mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "2147",
+  password: "",
   database: "bot-telegram",
 });
 
